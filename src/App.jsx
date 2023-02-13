@@ -36,7 +36,7 @@ const Flag = () => {
 
 export default function App() {
   return (
-    <Canvas>
+    <Canvas style={{ background: '#1b1e28' }}>
       <Flag />
       {/* <axesHelper /> */}
       <OrbitControls />

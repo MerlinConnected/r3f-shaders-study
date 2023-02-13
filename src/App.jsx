@@ -1,6 +1,7 @@
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import { useRef, useMemo } from 'react';
+import * as THREE from 'three';
 
 import vertexShader from './vertexShader';
 import fragmentShader from './fragmentShader';
@@ -11,8 +12,10 @@ const Flag = () => {
   const uniforms = useMemo(
     () => ({
       u_time: {
-        value: 0.0
-      }
+        value: 1.0
+      },
+      u_colorA: { value: new THREE.Color('#fef9c3') },
+      u_colorB: { value: new THREE.Color('#71e4c9') }
     }),
     []
   );

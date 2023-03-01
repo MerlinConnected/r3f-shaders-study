@@ -12,7 +12,7 @@ const Flag = () => {
   const uniforms = useMemo(
     () => ({
       u_time: {
-        value: 1.0
+        value: 0.01
       },
       u_colorA: { value: new THREE.Color('#fef9c3') },
       u_colorB: { value: new THREE.Color('#71e4c9') }

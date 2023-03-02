@@ -1,4 +1,4 @@
-const fragmentShader = `
+const flagFragmentShader = `
 uniform vec3 u_colorA;
 uniform vec3 u_colorB;
 varying float vZ;
@@ -11,4 +11,4 @@ void main() {
 
 `;
 
-export default fragmentShader;
+export default flagFragmentShader;

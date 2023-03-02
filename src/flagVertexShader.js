@@ -1,4 +1,4 @@
-const vertexShader = `
+const flagVertexShader = `
 
 uniform float u_time;
 
@@ -20,4 +20,4 @@ void main() {
 
 `;
 
-export default vertexShader;
+export default flagVertexShader;

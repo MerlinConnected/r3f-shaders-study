@@ -105,6 +105,6 @@ void main() {
   gl_Position = projectedPosition;
 }
 
-`;
+`
 
-export default sphereVertexShader;
+export default sphereVertexShader

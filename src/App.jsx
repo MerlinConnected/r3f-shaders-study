@@ -30,11 +30,7 @@ const Flag = () => {
 	return (
 		<mesh ref={mesh} position={[-2, 0, 0]} rotation={[-Math.PI / 2, 0, 0]}>
 			<planeGeometry args={[2, 2, 32, 32]} />
-			<shaderMaterial
-				vertexShader={flagVertexShader}
-				fragmentShader={flagFragmentShader}
-				uniforms={uniforms}
-			/>
+			<shaderMaterial vertexShader={flagVertexShader} fragmentShader={flagFragmentShader} uniforms={uniforms} />
 		</mesh>
 	)
 }
@@ -68,24 +64,33 @@ const Sphere = () => {
 	return (
 		<mesh ref={mesh} position={[2, 0, 0]} scale={1}>
 			<icosahedronGeometry args={[2, 20]} />
-			<shaderMaterial
-				fragmentShader={sphereFragmentShader}
-				vertexShader={sphereVertexShader}
-				uniforms={uniforms}
-				wireframe={false}
-			/>
+			<shaderMaterial fragmentShader={sphereFragmentShader} vertexShader={sphereVertexShader} uniforms={uniforms} wireframe={false} />
+		</mesh>
+	)
+}
+
+//begin plane
+
+// import planeVertexShader from './planeVertexShader'
+import planeFragmentShader from './planeFragmentShader'
+
+const Plane = () => {
+	const mesh = useRef()
+
+	return (
+		<mesh ref={mesh} position={[0, 0, 0]} scale={1}>
+			<planeGeometry args={[2, 2, 32, 32]} />
+			<shaderMaterial fragmentShader={planeFragmentShader} wireframe={false} />
 		</mesh>
 	)
 }
 
 export default function App() {
 	return (
-		<Canvas
-			style={{ background: '#1b1e28' }}
-			camera={{ position: [0.0, 0.0, 8.0] }}
-		>
-			<Flag />
-			<Sphere />
+		<Canvas style={{ background: '#1b1e28' }} camera={{ position: [0.0, 0.0, 2.0] }}>
+			{/* <Flag /> */}
+			{/* <Sphere /> */}
+			<Plane />
 			<OrbitControls />
 			<Environment preset='sunset' />
 		</Canvas>

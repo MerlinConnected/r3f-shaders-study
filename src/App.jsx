@@ -14,10 +14,10 @@ const Flag = () => {
 	const uniforms = useMemo(
 		() => ({
 			u_time: {
-				value: 0.01,
+				value: 0.01
 			},
 			u_colorA: { value: new THREE.Color('#fef9c3') },
-			u_colorB: { value: new THREE.Color('#71e4c9') },
+			u_colorB: { value: new THREE.Color('#71e4c9') }
 		}),
 		[]
 	)
@@ -30,7 +30,11 @@ const Flag = () => {
 	return (
 		<mesh ref={mesh} position={[-2, 0, 0]} rotation={[-Math.PI / 2, 0, 0]}>
 			<planeGeometry args={[2, 2, 32, 32]} />
-			<shaderMaterial vertexShader={flagVertexShader} fragmentShader={flagFragmentShader} uniforms={uniforms} />
+			<shaderMaterial
+				vertexShader={flagVertexShader}
+				fragmentShader={flagFragmentShader}
+				uniforms={uniforms}
+			/>
 		</mesh>
 	)
 }
@@ -47,11 +51,11 @@ const Sphere = () => {
 	const uniforms = useMemo(
 		() => ({
 			u_intensity: {
-				value: 0.1,
+				value: 0.1
 			},
 			u_time: {
-				value: 0.0,
-			},
+				value: 0.0
+			}
 		}),
 		[]
 	)
@@ -64,33 +68,24 @@ const Sphere = () => {
 	return (
 		<mesh ref={mesh} position={[2, 0, 0]} scale={1}>
 			<icosahedronGeometry args={[2, 20]} />
-			<shaderMaterial fragmentShader={sphereFragmentShader} vertexShader={sphereVertexShader} uniforms={uniforms} wireframe={false} />
+			<shaderMaterial
+				fragmentShader={sphereFragmentShader}
+				vertexShader={sphereVertexShader}
+				uniforms={uniforms}
+				wireframe={false}
+			/>
 		</mesh>
 	)
 }
 
 //begin plane
 
-// import planeVertexShader from './planeVertexShader'
-import planeFragmentShader from './planeFragmentShader'
-
-const Plane = () => {
-	const mesh = useRef()
-
-	return (
-		<mesh ref={mesh} position={[0, 0, 0]} scale={1}>
-			<planeGeometry args={[2, 2, 32, 32]} />
-			<shaderMaterial fragmentShader={planeFragmentShader} wireframe={false} />
-		</mesh>
-	)
-}
-
 export default function App() {
 	return (
 		<Canvas style={{ background: '#1b1e28' }} camera={{ position: [0.0, 0.0, 2.0] }}>
-			{/* <Flag /> */}
-			{/* <Sphere /> */}
-			<Plane />
+			<Flag />
+			<Sphere />
+
 			<OrbitControls />
 			<Environment preset='sunset' />
 		</Canvas>
